@@ -14,7 +14,7 @@ video.js v4.7.2
 {
     "require": {
         // ...
-        "raphy/video.js-bundle": "~4.7"
+        "azine/video.js-bundle": "~4.7"
     }
 }
 ```
@@ -28,7 +28,7 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new Raphy\VideoJsBundle\RaphyVideoJsBundle(),
+        new Azine\VideoJsBundle\AzineVideoJsBundle(),
         // ...
     );
 }
@@ -37,7 +37,7 @@ public function registerBundles()
 ### Download the bundle using Composer
 
 ``` bash
-$ php composer.phar update raphy/video.js-bundle
+$ php composer.phar update azine/video.js-bundle
 ```
 
 ### Install assets
@@ -59,8 +59,8 @@ $ php app/console assets:install --symlink web
 Refer to the desired files in your HTML template, e.g.
 
 ``` html
-<link rel="stylesheet" type="text/css" href="{{ asset('bundles/raphyvideojs/css/video-js.min.css') }}" />
-<script type="text/javascript" src="{{ asset('bundles/raphyvideojs/js/video.min.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/azinevideojs/css/video-js.min.css') }}" />
+<script type="text/javascript" src="{{ asset('bundles/azinevideojs/js/video.min.js') }}"></script>
 ```
 
 ## Licenses
