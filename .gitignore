@@ -1,0 +1,7 @@
+# Composer files
+composer.phar
+composer.lock
+
+# IDE and Editors
+/.idea
+*~

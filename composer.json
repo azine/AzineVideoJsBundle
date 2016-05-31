@@ -1,0 +1,23 @@
+{
+    "name":        "azine/video.js-bundle",
+    "type":        "symfony-bundle",
+    "description": "video.js Bundle for Symfony2",
+    "keywords":    ["videojs", "html5", "flash", "video", "player", "javascript", "symfony"],
+    "homepage":    "http://www.videojs.com/",
+    "license":     ["Apache-2.0"],
+    "authors":     [
+        {
+            "name":     "Azine IT Services AG",
+            "email":    "github@azine-it.ch"
+        }
+    ],
+    "require":     {
+        "symfony/framework-bundle": ">=2.1"
+    },
+    "autoload":    {
+        "psr-0": {
+            "Azine\\VideoJsBundle": ""
+        }
+    },
+    "target-dir":  "Azine/VideoJsBundle"
+}
