@@ -1,73 +1,65 @@
-# video.js Bundle for Symfony2
+# Azine video.js Bundle for Symfony
 
-## Current Version
+A lightweight Symfony bundle that exposes video.js assets for use in Twig templates.
 
-video.js v4.7.2
+## Requirements
+
+- PHP `^8.5`
+- Symfony FrameworkBundle `^7.4`
 
 ## Installation
 
-### Add bundle to your composer.json file
+Install via Composer:
 
-``` js
-// composer.json
-
-{
-    "require": {
-        // ...
-        "azine/video.js-bundle": "~4.7"
-    }
-}
+```bash
+composer require azine/video.js-bundle
 ```
 
-### Add bundle to your application kernel
+Enable the bundle (only needed for Symfony versions that do not use Flex auto-registration):
 
-``` php
-// app/AppKernel.php
-
-public function registerBundles()
-{
-    $bundles = array(
-        // ...
-        new Azine\VideoJsBundle\AzineVideoJsBundle(),
-        // ...
-    );
-}
+```php
+// config/bundles.php
+return [
+    // ...
+    Azine\VideoJsBundle\AzineVideoJsBundle::class => ['all' => true],
+];
 ```
 
-### Download the bundle using Composer
+Install bundle assets:
 
-``` bash
-$ php composer.phar update azine/video.js-bundle
-```
-
-### Install assets
-
-Given your server's public directory is named "web", install the public vendor resources
-
-``` bash
-$ php app/console assets:install web
-```
-
-Optionally, use the --symlink attribute to create links rather than copies of the resources
-
-``` bash
-$ php app/console assets:install --symlink web
+```bash
+php bin/console assets:install public
 ```
 
 ## Usage
 
-Refer to the desired files in your HTML template, e.g.
+Reference bundle assets in Twig:
 
-``` html
-<link rel="stylesheet" type="text/css" href="{{ asset('bundles/azinevideojs/css/video-js.min.css') }}" />
-<script type="text/javascript" src="{{ asset('bundles/azinevideojs/js/video.min.js') }}"></script>
+```twig
+<link rel="stylesheet" href="{{ asset('bundles/azinevideojs/css/video-js.min.css') }}" />
+<script src="{{ asset('bundles/azinevideojs/js/video.min.js') }}"></script>
 ```
 
-## Licenses
+## Development
 
-Refer to the source code of the included files for license information
+Run checks locally:
 
-## References
+```bash
+composer validate --strict --no-check-publish
+composer update
+composer test
+```
 
-1. http://www.videojs.com/
-2. http://symfony.com
+## Upgrade notes
+
+### Modernization for PHP 8.5 / Symfony 7.4
+
+- Raised minimum runtime to PHP 8.5.
+- Updated Symfony dependency target to FrameworkBundle 7.4.
+- Replaced legacy Composer autoload metadata (`target-dir`/PSR-0) with PSR-4 autoloading.
+- Added PHPUnit 12 configuration and a baseline test suite entry point.
+- Added GitHub Actions CI to validate Composer metadata and run tests on each push and pull request.
+
+## License
+
+Refer to the source code of included video.js files for upstream license details. The bundle itself is Apache-2.0 licensed.
