@@ -1,10 +1,16 @@
 {
     "name": "azine/video.js-bundle",
     "type": "symfony-bundle",
-    "description": "video.js asset bundle for Symfony applications",
-    "keywords": ["videojs", "html5", "video", "player", "javascript", "symfony"],
+    "description": "Video.js asset bundle for Symfony applications.",
+    "keywords": [
+        "html5",
+        "javascript",
+        "symfony",
+        "video",
+        "videojs"
+    ],
     "homepage": "https://videojs.com/",
-    "license": ["Apache-2.0"],
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Azine IT Services AG",
@@ -16,7 +22,7 @@
         "symfony/framework-bundle": "^7.4"
     },
     "require-dev": {
-        "phpunit/phpunit": "^12.0"
+        "phpunit/phpunit": "^12.5"
     },
     "autoload": {
         "psr-4": {
@@ -29,9 +35,11 @@
         }
     },
     "scripts": {
-        "test": "phpunit"
+        "test": "phpunit -c phpunit.xml.dist"
     },
     "config": {
         "sort-packages": true
-    }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
