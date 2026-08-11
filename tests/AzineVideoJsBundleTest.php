@@ -16,4 +16,32 @@ final class AzineVideoJsBundleTest extends TestCase
 
         self::assertInstanceOf(Bundle::class, $bundle);
     }
+
+    public function testCanonicalAssetsArePackaged(): void
+    {
+        $root = dirname(__DIR__);
+
+        foreach ([
+            'Resources/public/js/video.js',
+            'Resources/public/js/video.min.js',
+            'Resources/public/css/video-js.css',
+            'Resources/public/css/video-js.min.css',
+        ] as $asset) {
+            self::assertFileExists($root.'/'.$asset, sprintf('Expected packaged asset "%s".', $asset));
+            self::assertGreaterThan(0, filesize($root.'/'.$asset));
+        }
+    }
+
+    public function testDuplicateGeneratedAssetsAreNotPackaged(): void
+    {
+        $root = dirname(__DIR__);
+
+        foreach ([
+            'Resources/public/js/video.dev.min.min.js',
+            'Resources/public/js/video.min.min.js',
+            'Resources/public/js/video.min.min.min.js',
+        ] as $asset) {
+            self::assertFileDoesNotExist($root.'/'.$asset);
+        }
+    }
 }
