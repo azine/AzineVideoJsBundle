@@ -27,7 +27,7 @@ jobs:
         with:
           php-version: '8.5'
           coverage: none
-          extensions: ctype, iconv, mbstring
+          extensions: ctype, iconv, mbstring, xml
           tools: composer:v2
 
       - name: Validate composer.json
@@ -49,5 +49,8 @@ jobs:
         if: matrix.dependencies == 'lowest'
         run: composer update --prefer-lowest --prefer-stable --prefer-dist --no-interaction
 
-      - name: Run test suite
-        run: composer test
+      - name: Lint PHP
+        run: find . -path './vendor' -prune -o -name '*.php' -print0 | xargs -0 -n1 php -l
+
+      - name: Run strict test suite
+        run: vendor/bin/phpunit -c phpunit.xml.dist --display-deprecations --display-phpunit-deprecations --display-phpunit-notices --display-notices --display-skipped --fail-on-deprecation --fail-on-phpunit-deprecation --fail-on-phpunit-notice --fail-on-notice --fail-on-skipped
