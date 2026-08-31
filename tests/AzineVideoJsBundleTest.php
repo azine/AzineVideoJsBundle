@@ -67,10 +67,10 @@ final class AzineVideoJsBundleTest extends TestCase
     {
         $bundle = new AzineVideoJsBundle();
         $source = $bundle->getPath().'/Resources/public';
-        $targetPrefix = 'bundles/'.strtolower($bundle->getName());
+        $targetPrefix = 'bundles/'.preg_replace('/bundle$/', '', strtolower($bundle->getName()));
 
         self::assertDirectoryExists($source);
-        self::assertSame('bundles/azinevideojsbundle', $targetPrefix);
+        self::assertSame('bundles/azinevideojs', $targetPrefix);
 
         foreach (self::PUBLIC_ASSETS as $asset) {
             $relative = substr($asset, strlen('Resources/public/'));
