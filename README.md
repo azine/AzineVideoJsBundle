@@ -4,7 +4,7 @@ A lightweight Symfony bundle that exposes the existing Video.js 4.7.2 assets use
 
 ## Requirements
 
-- PHP `^8.5`
+- PHP `^8.5.12`
 - Symfony FrameworkBundle `^7.4`
 
 ## Installation
